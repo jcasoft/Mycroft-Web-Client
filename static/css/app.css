@@ -1,0 +1,96 @@
+body {
+  padding-top: 100px;
+  /* background-color: #ecf1f1; */
+  background-color: #333333;
+}
+
+.panel-body {
+  /* background-color: #bcc1c5; */
+  background-color: #666666;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.panel-body-title {
+  text-align:center;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  padding-bottom: 20px;
+}
+
+
+.panel-success {
+  background-color: #3c763d;
+  padding: 10px 20px;
+  color: white;
+}
+
+.panel-success > p {
+  margin: 0;
+}
+
+.panel-error {
+  background-color: #a94442;
+  padding: 10px 20px;
+  color: white;
+}
+
+.panel-error > p {
+  margin: 0;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 0px;
+  width: auto;
+}
+
+.navbar-brand {
+  height: 0px;
+}
+
+.mycroft .navbar-brand {
+  height: 80px;
+}
+
+.mycroft .nav >li >a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.mycroft .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+
+.btn-round-lg{
+border-radius: 22.5px;
+padding-left: 30px;
+padding-right: 30px;
+}
+.btn-round{
+border-radius: 17px;
+}
+.btn-round-sm{
+border-radius: 15px;
+}
+.btn-round-xs{
+border-radius: 11px;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+.form-control:focus {
+  background: #333333;
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  color: white;
+}
+
+/*
+.form-control:focus {
+  background: -webkit-linear-gradient(315deg, #55efcb 0%, #1e5799 0%, #55efcb 0%, #5bcaff 70%);
+  background: linear-gradient(135deg, #55efcb 0%, #1e5799 0%, #55efcb 0%, #5bcaff 70%);
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+*/

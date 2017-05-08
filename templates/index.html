@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mycroft Web Client</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/todc-bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/app.css" type="text/css">
+    <style>
+        #received { 
+		width: 100%; 
+		height: 300px; 
+		/* border: 2px solid; */
+		overflow-y:scroll;
+    		border-radius: 15px;
+		box-shadow: 10px 10px 5px #888888;
+		/*
+  		background: -webkit-linear-gradient(315deg, #55efcb 0%, #1e5799 0%, #55efcb 0%, #5bcaff 90%);
+  		background: linear-gradient(135deg, #55efcb 0%, #1e5799 0%, #55efcb 0%, #5bcaff 100%);
+		*/
+		background: #333333;
+  		font-family: 'Lato', sans-serif;
+		font-size: 16px;
+		padding-left: 10px;
+	}
+    </style>
+  </head>
+
+  <body>
+    <div class="mycroft">
+      <nav class="navbar navbar-masthead navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="/static/img/Logo2.png" alt="Mycroft Logo">
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div >
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div>
+            <div id="profile-success" class="panel-success" style="display: none;"></div>
+            <div id="profile-error" class="panel-error" style="display: none;"></div>
+	    <!--
+            <div class="panel-text">
+              <h2>Mycroft Web Client</h2>
+            </div>
+   	    -->
+            <div class="panel-body">
+	      <div class="panel-body-title">
+	          <h2>Mycroft Web Client</h2>
+	      </div>
+ 	      <div class="form-group" id="received">
+	      </div>
+	      <button class="btn btn-primary btn-round-lg btn-lg" id="clear">Clear</button>
+	      <button class="btn btn-primary btn-round-lg btn-lg" id="stop">Stop</button>
+	      <br/> <br/>
+              <form id="profile-form">
+                <div class="form-group">
+                  <label for="firstname">Send to Mycroft</label>
+                  <input type="text" class="form-control" id="cmd_value">
+                </div>
+		<div id="item" hidden>
+	           <button type="submit" class="btn btn-primary btn-round-lg btn-lg" id="cmd_send"></button>
+		</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
