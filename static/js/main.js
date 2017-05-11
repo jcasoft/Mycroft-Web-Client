@@ -1,9 +1,19 @@
+var ip = ""
+
+function set_ip(val)
+{
+    ip=val
+    console.log("New ip 1="+ ip)
+}
+
+
 $(document).ready(function(){
 
 var received = $('#received');
 
-
-var socket = new WebSocket("ws://localhost:8181/ws");
+var socket = new WebSocket("ws://"+ip+":8181/ws");
+console.log("ws://"+ip+":8181/ws")
+// var socket = new WebSocket("ws://localhost:8181/ws");
  
 socket.onopen = function(){  
   console.log("connected"); 

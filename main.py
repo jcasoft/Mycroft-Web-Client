@@ -37,6 +37,7 @@ settings = {
 
 from datetime import date
 import tornado.escape
+#import tornado.web
 import os
 import json
 import time
@@ -46,6 +47,7 @@ import tornado.websocket
 import tornado.gen
 from tornado.options import define, options
 import multiprocessing
+from netifaces import interfaces, ifaddresses, AF_INET
 
 from mycroft.messagebus.client.ws import WebsocketClient
 from mycroft.messagebus.message import Message
@@ -58,13 +60,16 @@ ws = None
 # --------------------------------------
 clients = [] 
 
+for ifaceName in interfaces():
+	ip = addresses = [i['addr'] for i in ifaddresses(ifaceName).setdefault(AF_INET, [{'addr':'No IP addr'}] )][0]
+
 input_queue = multiprocessing.Queue()
 output_queue = multiprocessing.Queue()
 
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render('index.html')
+        self.render('index.html',ip=ip)
 
 class StaticFileHandler(tornado.web.RequestHandler):
 	def get(self):
@@ -166,9 +171,9 @@ def main():
 
     routes = [
         (route, WebsocketEventHandler),
-	(r"/", IndexHandler),
-	(r"/static/(.*)", tornado.web.StaticFileHandler, {'path':  './'}),
-	(r"/ws", WebSocketHandler)
+	tornado.web.url(r"/", IndexHandler),
+	tornado.web.url(r"/static/(.*)", tornado.web.StaticFileHandler, {'path':  './'}),
+	tornado.web.url(r"/ws", WebSocketHandler)
     ]
 
     settings = {
@@ -177,10 +182,15 @@ def main():
         "static_path": os.path.join(os.path.dirname(__file__), "static"),
     }
     
+
     application = web.Application(routes, **settings)
     httpServer = tornado.httpserver.HTTPServer(application)
-    httpServer.listen(port, host)
-    ioloop.IOLoop.instance().start()
+
+    tornado.options.parse_command_line()
+    httpServer.listen(port)
+
+    tornado.ioloop.IOLoop.instance().start()
+
 
 
 if __name__ == "__main__":

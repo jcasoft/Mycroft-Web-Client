@@ -25,12 +25,7 @@ Step 2	Restar Mycroft
 
 
 Setp 3
-
-    Open you browser  with http://localhost:8181/
-
-    or
-     
-    http://YOUR_MYCROFT_IP_ADRESS:8181/
+    Open you browser on http://MYCROFT_IP_ADRESS:8181/   (Not localhost) 
 
 
 **Enjoy !**
